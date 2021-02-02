@@ -70,7 +70,7 @@
   :init (setq lsp-python-ms-auto-install-server t)
   :hook (python-mode . (lambda ()
                           (require 'lsp-python-ms)
-                          (lsp))))  ; or lsp-deferred
+                          (lsp-deferred))))  ; or lsp-deferred
 (require 'lsp-mode)
 (add-hook 'go-mode-hook #'lsp-deferred)
 
