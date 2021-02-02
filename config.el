@@ -144,3 +144,12 @@
       lsp-ui-sideline-enable t
       lsp-ui-imenu-enable t
       lsp-ui-flycheck-enable t)
+
+(use-package thrift
+  :straight t
+  :if (eq system-type 'darwin) ;; only need this on work computer
+  :config
+  (add-hook 'thrift-mode-hook
+            (lambda ()
+              (setq comment-start "//")
+              (setq comment-end ""))))
