@@ -90,7 +90,7 @@
                           (lsp-deferred))))  ; or lsp-deferred
 
 (setq lsp-gopls-staticcheck t)
-(setq lsp-eldoc-render-all t)
+(setq lsp-eldoc-render-all nil)
 (setq lsp-gopls-complete-unimported t)
 
 (use-package lsp-mode
