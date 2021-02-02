@@ -49,6 +49,23 @@
 ;;   this file. Emacs searches the `load-path' when you load packages with
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
+(map! "C-l" 'evil-window-right)
+(map! "C-h" 'evil-window-left)
+(map! "C-k" 'evil-window-up)
+(map! "C-j" 'evil-window-down)
+(defun vsplit-and-move-right ()
+  (interactive)
+  (evil-window-vsplit)
+  (evil-window-right 1))
+(map! :leader "w v" 'vsplit-and-move-right)
+
+(defun split-and-move-down ()
+  (interactive)
+  (evil-window-split)
+  (evil-window-down 1))
+(map! :leader "w s" 'split-and-move-down)
+
+(map! :leader "c r" 'xref-find-references)
 ;;
 ;; To get information about any of these functions/macros, move the cursor over
 ;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
