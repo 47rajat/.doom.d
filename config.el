@@ -50,8 +50,8 @@
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
 (map! "Y" "y$")
-(map! :leader "[" 'evil-jump-backward)
-(map! :leader "]" 'evil-jump-forward)
+(map! "[ g" 'evil-jump-backward)
+(map! "] g" 'evil-jump-forward)
 (map! :leader
       :desc "Rename buffer"
       "b r" 'rename-buffer)
