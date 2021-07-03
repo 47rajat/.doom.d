@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Rajat"
-      user-mail-address "1234@gmail.com")
+      user-mail-address "rajat241994@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -26,7 +26,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -49,23 +49,24 @@
 ;;   this file. Emacs searches the `load-path' when you load packages with
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
-(map! "C-l" 'evil-window-right)
-(map! "C-h" 'evil-window-left)
-(map! "C-k" 'evil-window-up)
-(map! "C-j" 'evil-window-down)
-(defun vsplit-and-move-right ()
-  (interactive)
-  (evil-window-vsplit)
-  (evil-window-right 1))
-(map! :leader "w v" 'vsplit-and-move-right)
+(map! "Y" "y$")
+(map! :leader "[" 'evil-jump-backward)
+(map! :leader "]" 'evil-jump-forward)
 
-(defun split-and-move-down ()
-  (interactive)
-  (evil-window-split)
-  (evil-window-down 1))
-(map! :leader "w s" 'split-and-move-down)
+(setq evil-split-window-below t)
+(setq evil-vsplit-window-right t)
 
-(map! :leader "c r" 'xref-find-references)
+;; Spell Checking
+;; Requires aspell
+(use-package flyspell
+  :config
+  (setq ispell-program-name "aspell")
+  (setq flyspell-prog-text-faces
+        (delq 'font-lock-string-face
+              flyspell-prog-text-faces))
+  (add-hook 'text-mode-hook 'flyspell-mode)
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode))
+
 ;;
 ;; To get information about any of these functions/macros, move the cursor over
 ;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
@@ -78,6 +79,7 @@
   (require 'tree-sitter-langs)
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
 (use-package super-save
   :ensure t
   :config
@@ -146,7 +148,6 @@
       lsp-ui-flycheck-enable t)
 
 (use-package thrift
-  :straight t
   :if (eq system-type 'darwin) ;; only need this on work computer
   :config
   (add-hook 'thrift-mode-hook
