@@ -52,6 +52,9 @@
 (map! "Y" "y$")
 (map! :leader "[" 'evil-jump-backward)
 (map! :leader "]" 'evil-jump-forward)
+(map! :leader
+      :desc "Rename buffer"
+      "b r" 'rename-buffer)
 
 (setq evil-split-window-below t)
 (setq evil-vsplit-window-right t)
