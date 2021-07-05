@@ -12,6 +12,7 @@
 
 (setq org-directory "~/org/")
 
+(global-display-line-numbers-mode) ;; only works with emacs >= 26
 (setq display-line-numbers-type 'relative)
 
 (setq auto-save-default t)
@@ -99,8 +100,24 @@
   :ensure t
   :commands company-lsp)
 
+;; disable company mode in eshell (major nuisance)
+(setq company-global-modes '(not eshell-mode))
+
 ;;Optional - provides snippet support.
 (use-package yasnippet
   :ensure t
   :commands yas-minor-mode
   :hook (go-mode . yas-minor-mode))
+
+(setq eshell-rc-script (expand-file-name "eshell/profile" doom-private-dir)
+      eshell-aliases-file (expand-file-name "eshell/aliases" doom-private-dir)
+      eshell-history-size 5000
+      eshell-buffer-maximum-lines 5000
+      eshell-hist-ignoredups t
+      eshell-scroll-to-bottom-on-input t
+      eshell-destroy-buffer-when-process-dies t
+      eshell-visual-commands'("bash" "htop" "ssh" "top" "zsh" "less"))
+
+(map! :leader
+      :desc "Eshell" "e s" #'eshell
+      :desc "Counsel eshell history" "e h" #'counsel-esh-history)

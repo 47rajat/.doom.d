@@ -21,6 +21,7 @@
 - [[#go-lsp-gopls][GO LSP (GOPLS)]]
 - [[#company][COMPANY]]
 - [[#yasnippet][YASNIPPET]]
+- [[#eshell][ESHELL]]
 
 * ABOUT
 Personal config that I use with Doom Emacs.
@@ -51,6 +52,7 @@ Personal config that I use with Doom Emacs.
 Setting line numbers to relative mode.
 
 #+begin_src emacs-lisp
+(global-display-line-numbers-mode) ;; only works with emacs >= 26
 (setq display-line-numbers-type 'relative)
 #+end_src
 
@@ -178,6 +180,9 @@ Provides auto completion support, also works with LSP mode.
 (use-package company-lsp
   :ensure t
   :commands company-lsp)
+
+;; disable company mode in eshell (major nuisance)
+(setq company-global-modes '(not eshell-mode))
 #+end_src
 
 * YASNIPPET
@@ -189,4 +194,20 @@ Provides snippet support.
   :ensure t
   :commands yas-minor-mode
   :hook (go-mode . yas-minor-mode))
+#+end_src
+
+* ESHELL
+#+begin_src emacs-lisp
+(setq eshell-rc-script (expand-file-name "eshell/profile" doom-private-dir)
+      eshell-aliases-file (expand-file-name "eshell/aliases" doom-private-dir)
+      eshell-history-size 5000
+      eshell-buffer-maximum-lines 5000
+      eshell-hist-ignoredups t
+      eshell-scroll-to-bottom-on-input t
+      eshell-destroy-buffer-when-process-dies t
+      eshell-visual-commands'("bash" "htop" "ssh" "top" "zsh" "less"))
+
+(map! :leader
+      :desc "Eshell" "e s" #'eshell
+      :desc "Counsel eshell history" "e h" #'counsel-esh-history)
 #+end_src
