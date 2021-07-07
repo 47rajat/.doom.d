@@ -9,7 +9,7 @@
 - [[#org-mode][ORG MODE]]
 - [[#gui-tweaks][GUI TWEAKS]]
   - [[#line-numbers][Line Numbers]]
-- [[#auto-save][AUTO-SAVE]]
+- [[#file-save-and-load][FILE SAVE AND LOAD]]
 - [[#custom-keybindings][CUSTOM KEYBINDINGS]]
 - [[#evil-mode][EVIL MODE]]
   - [[#window-split][Window Split]]
@@ -56,10 +56,15 @@ Setting line numbers to relative mode.
 (setq display-line-numbers-type 'relative)
 #+end_src
 
-* AUTO-SAVE
-Enable auto-save by default
+* FILE SAVE AND LOAD
+Enable auto-save by default. And load files automatically when changed.
 
 #+begin_src emacs-lisp
+
+;; Auto-load files when changed
+(global-auto-revert-mode t)
+
+;; Auto-save files.
 (setq auto-save-default t)
 #+end_src
 
