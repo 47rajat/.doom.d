@@ -105,7 +105,7 @@ Enable auto-save by default. And load files automatically when changed.
       :n "] g" 'evil-jump-forward)
 (map! :leader
       :desc "Rename buffer"
-      "b r" 'rename-buffer)
+      "b R" 'rename-buffer)
 #+end_src
 
 * EVIL MODE
