@@ -57,8 +57,6 @@
 (setq evil-split-window-below t)
 (setq evil-vsplit-window-right t)
 
-(modify-syntax-entry ?_ "w")
-
 (use-package flyspell
   :config
   (setq ispell-program-name "aspell")

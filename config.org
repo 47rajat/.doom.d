@@ -14,7 +14,6 @@
 - [[#custom-keybindings][CUSTOM KEYBINDINGS]]
 - [[#evil-mode][EVIL MODE]]
   - [[#window-split][Window Split]]
-  - [[#word-motion][Word Motion]]
 - [[#flyspell][FLYSPELL]]
 - [[#tree-sitter][TREE SITTER]]
 - [[#super-save][SUPER SAVE]]
@@ -114,10 +113,6 @@ Enable auto-save by default. And load files automatically when changed.
 #+begin_src emacs-lisp
 (setq evil-split-window-below t)
 (setq evil-vsplit-window-right t)
-#+end_src
-** Word Motion
-#+begin_src emacs-lisp
-(modify-syntax-entry ?_ "w")
 #+end_src
 
 * FLYSPELL
