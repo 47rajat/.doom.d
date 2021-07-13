@@ -23,6 +23,7 @@
 - [[#company][COMPANY]]
 - [[#yasnippet][YASNIPPET]]
 - [[#eshell][ESHELL]]
+- [[#modeline][MODELINE]]
 
 * ABOUT
 Personal config that I use with Doom Emacs.
@@ -244,4 +245,10 @@ Provides snippet support.
 (map! :leader
       :desc "Eshell" "e s" #'eshell
       :desc "Counsel eshell history" "e h" #'counsel-esh-history)
+#+end_src
+
+* MODELINE
+Configurations for doom modeline.
+#+begin_src emacs-lisp
+(setq doom-modeline-vcs-max-length 25)
 #+end_src

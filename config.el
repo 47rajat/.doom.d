@@ -150,3 +150,5 @@
 (map! :leader
       :desc "Eshell" "e s" #'eshell
       :desc "Counsel eshell history" "e h" #'counsel-esh-history)
+
+(setq doom-modeline-vcs-max-length 25)
