@@ -24,6 +24,7 @@
 - [[#yasnippet][YASNIPPET]]
 - [[#eshell][ESHELL]]
 - [[#modeline][MODELINE]]
+- [[#vterm][VTERM]]
 
 * ABOUT
 Personal config that I use with Doom Emacs.
@@ -251,4 +252,11 @@ Provides snippet support.
 Configurations for doom modeline.
 #+begin_src emacs-lisp
 (setq doom-modeline-vcs-max-length 25)
+#+end_src
+
+* VTERM
+Configuration for the VTerm package.
+#+begin_src emacs-lisp
+(setq vterm-kill-buffer-on-exit t
+      vterm-max-scrollback 5000)
 #+end_src
