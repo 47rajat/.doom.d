@@ -35,6 +35,13 @@
 
 (setq org-directory "~/org/")
 
+;; Add keybinding for org-babel-tangle
+(map! :after evil-org
+      :map evil-org-mode-map
+      :localleader
+      :desc "Tangle org file"
+      :n "B" #'org-babel-tangle)
+
 (global-display-line-numbers-mode) ;; only works with emacs >= 26
 (setq display-line-numbers-type 'relative)
 
@@ -52,7 +59,7 @@
       :n "] g" 'evil-jump-forward)
 (map! :leader
       :desc "Rename buffer"
-      "b R" 'rename-buffer)
+      :n "b R" 'rename-buffer)
 
 (setq evil-split-window-below t)
 (setq evil-vsplit-window-right t)

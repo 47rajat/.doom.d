@@ -11,7 +11,7 @@
 
 * VARIABLES
 #+begin_src bash
-export PATH='/Users/stark/.emacs.d/bin':$PATH
+export PATH=$HOME/.emacs.d/bin:$PATH
 #+end_src
 
 * ALIASES
