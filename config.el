@@ -166,3 +166,5 @@
 
 (setq vterm-kill-buffer-on-exit t
       vterm-max-scrollback 5000)
+;; Ensure mode line is not hidden for vterm, makes it easier to see the current mode(nvi).
+(remove-hook 'vterm-mode-hook 'hide-mode-line-mode)

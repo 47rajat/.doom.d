@@ -270,4 +270,6 @@ Configuration for the VTerm package.
 #+begin_src emacs-lisp
 (setq vterm-kill-buffer-on-exit t
       vterm-max-scrollback 5000)
+;; Ensure mode line is not hidden for vterm, makes it easier to see the current mode(nvi).
+(remove-hook 'vterm-mode-hook 'hide-mode-line-mode)
 #+end_src
