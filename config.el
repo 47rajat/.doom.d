@@ -60,6 +60,10 @@
 (map! :leader
       :desc "Rename buffer"
       :n "b R" 'rename-buffer)
+(map! :desc "Previous error"
+      :n "[ e" #'flycheck-previous-error)
+(map! :desc "Next error"
+      :n "] e" #'flycheck-next-error)
 
 (setq evil-split-window-below t)
 (setq evil-vsplit-window-right t)

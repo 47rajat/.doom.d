@@ -115,6 +115,10 @@ Enable auto-save by default. And load files automatically when changed.
 (map! :leader
       :desc "Rename buffer"
       :n "b R" 'rename-buffer)
+(map! :desc "Previous error"
+      :n "[ e" #'flycheck-previous-error)
+(map! :desc "Next error"
+      :n "] e" #'flycheck-next-error)
 #+end_src
 
 * EVIL MODE
