@@ -33,7 +33,10 @@
   (prettify-symbols-mode 1))
 (add-hook 'org-mode-hook #'my/org-mode/load-prettify-symbols)
 
-(setq org-directory "~/org/")
+(use-package org
+  :config
+  (setq org-directory "~/org/"
+        org-ellipsis " ▼"))
 
 ;; Add keybinding for org-babel-tangle
 (map! :after evil-org
@@ -84,17 +87,14 @@
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 (use-package super-save
-  :ensure t
   :config
   (super-save-mode +1))
 
 (use-package lsp-mode
-  :ensure t
   :commands (lsp lsp-deferred)
   :hook (go-mode . lsp-deferred))
 
 (use-package lsp-ui
-  :ensure t
   :commands lsp-ui-mode
   :init
 )
@@ -107,7 +107,6 @@
       lsp-ui-flycheck-enable t)
 
 (use-package lsp-python-ms
-  :ensure t
   :init (setq lsp-python-ms-auto-install-server t)
   :hook (python-mode . (lambda ()
                           (require 'lsp-python-ms)
@@ -129,13 +128,11 @@
 ;;completion-at-point also works out of the box but doesn't support snippets.
 
 (use-package company
-  :ensure t
   :config
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1))
 
 (use-package company-lsp
-  :ensure t
   :commands company-lsp)
 
 ;; disable company mode in eshell (major nuisance)
@@ -143,7 +140,6 @@
 
 ;;Optional - provides snippet support.
 (use-package yasnippet
-  :ensure t
   :commands yas-minor-mode
   :hook (go-mode . yas-minor-mode))
 

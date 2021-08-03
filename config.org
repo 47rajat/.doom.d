@@ -74,7 +74,10 @@ Personal config that I use with Doom Emacs.
 
 * ORG MODE
 #+begin_src emacs-lisp
-(setq org-directory "~/org/")
+(use-package org
+  :config
+  (setq org-directory "~/org/"
+        org-ellipsis " ▼"))
 
 ;; Add keybinding for org-babel-tangle
 (map! :after evil-org
@@ -156,7 +159,6 @@ Provides (better) syntax highlighting.
 Enable auto-save in buffers
 #+begin_src emacs-lisp
 (use-package super-save
-  :ensure t
   :config
   (super-save-mode +1))
 #+end_src
@@ -165,12 +167,10 @@ Enable auto-save in buffers
 LSP package for providing syntax completion, checks, etc.
 #+begin_src emacs-lisp
 (use-package lsp-mode
-  :ensure t
   :commands (lsp lsp-deferred)
   :hook (go-mode . lsp-deferred))
 
 (use-package lsp-ui
-  :ensure t
   :commands lsp-ui-mode
   :init
 )
@@ -187,7 +187,6 @@ LSP package for providing syntax completion, checks, etc.
 Microsoft python LSP.
 #+begin_src emacs-lisp
 (use-package lsp-python-ms
-  :ensure t
   :init (setq lsp-python-ms-auto-install-server t)
   :hook (python-mode . (lambda ()
                           (require 'lsp-python-ms)
@@ -218,13 +217,11 @@ Provides auto completion support, also works with LSP mode.
 ;;completion-at-point also works out of the box but doesn't support snippets.
 
 (use-package company
-  :ensure t
   :config
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1))
 
 (use-package company-lsp
-  :ensure t
   :commands company-lsp)
 
 ;; disable company mode in eshell (major nuisance)
@@ -237,7 +234,6 @@ Provides snippet support.
 
 ;;Optional - provides snippet support.
 (use-package yasnippet
-  :ensure t
   :commands yas-minor-mode
   :hook (go-mode . yas-minor-mode))
 #+end_src
