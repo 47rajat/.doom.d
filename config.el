@@ -168,3 +168,17 @@
       vterm-max-scrollback 5000)
 ;; Ensure mode line is not hidden for vterm, makes it easier to see the current mode(nvi).
 (remove-hook 'vterm-mode-hook 'hide-mode-line-mode)
+
+(map! :map smerge-mode-map
+      (:desc "keep upper"
+       :n "s k u" #'smerge-keep-upper)
+      (:desc "keep lower"
+       :n "s k l" #'smerge-keep-lower)
+      (:desc "keep base"
+       :n "s k b" #'smerge-keep-base)
+      (:desc "keep all"
+       :n "s k a" #'smerge-keep-all)
+      (:desc "next conflict"
+       :n "] c" #'smerge-next)
+      (:desc "previous conflict"
+       :n "[ c" #'smerge-prev))
